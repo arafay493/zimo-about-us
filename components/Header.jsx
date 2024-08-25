@@ -9,8 +9,6 @@ import { API_KEY, data } from "@/config/constants";
 const getLocation = async (setObj) => {
   try {
     const location = await axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}`);
-    console.log(location);
-    
     setObj(location.data);
   } catch (error) {
     console.log("Error" + error);
