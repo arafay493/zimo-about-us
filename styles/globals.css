@@ -1,27 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  font-family: "Lato", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  user-select: none;
+  /* overflow-y: hidden; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+::-webkit-scrollbar {
+  height: 4px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track {
+  background-color: silver;
+}
+
+@media only screen and (min-height: 800px) {
+  
+  .next-sec-arrow{
+    width: 70px !important;
+    height: 35px !important;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media only screen and (max-height: 800px) {
+  .section1-p{
+    margin-bottom: 25px !important;
+    font-size: 16px !important;
+  }
+
+  #section1 .main-headng {
+    /* width: auto;
+    height: auto; */
+    top: 55%;
+  }
+  #section1 .main-headng>div {
+    width: auto;
+    height: auto;
+  }
+  #section1 .main-headng h3{
+    font-size: 30px;
+  }
+  #section1 .main-headng h2{
+    font-size: 33px;
+  }
+  #section1 .main-headng p{
+    margin-top: 0px;
+    font-size: 16px;
+  }
+  .next-sec-arrow{
+    width: 52px !important;
+    height: 27px !important;
+  }
 }
+
+@media only screen and (max-height: 600px) {
+  .section1-p{
+    margin-bottom: 20px !important;
+    font-size: 16px !important;
+  }
+
+  #section1 .main-headng {
+    /* width: auto;
+    height: auto; */
+    /* top: 60%; */
+  }
+  #section1 .main-headng>div {
+    width: auto;
+    height: auto;
+  }
+  #section1 .main-headng h3{
+    font-size: 30px;
+  }
+  #section1 .main-headng h2{
+    font-size: 35px;
+  }
+  #section1 .main-headng p{
+    margin-top: 0px;
+    font-size: 16px;
+  }
+}
+
+
