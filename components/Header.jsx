@@ -8,7 +8,9 @@ const getLocation = async (setObj) => {
   try {
     const response = await axios.get("https://api.ipify.org?format=json");
     const IP = response?.data?.ip;
+    console.log("IP" , IP)
     const location = await axios.get(`http://ip-api.com/json/${IP}`);
+    console.log("location" , location)
     setObj(location.data);
   } catch (error) {
     console.log("Error" + error);
