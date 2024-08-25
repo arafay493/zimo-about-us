@@ -55,7 +55,7 @@ const Header = () => {
               countryCode={obj.country_code2}
               svg
               className="emojiFlag w-[37.31px] h-[25px]"
-              title={obj.country_code}
+              title={obj.country_code2}
             />
           </div>
         </div>
