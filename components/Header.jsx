@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import Clock from "react-live-clock";
 import ReactCountryFlag from "react-country-flag";
 import axios from "axios";
-import { API_KEY, data } from "@/config/constants";
-// import { IoLocation } from 'react-icons/io'
 
 const getLocation = async (setObj) => {
   try {
-    const location = await axios.get(`https://api.ipgeolocation.io/ipgeo?apiKey=${API_KEY}`);
+    const response = await axios.get("https://api.ipify.org?format=json");
+    const IP = response?.data?.ip;
+    const location = await axios.get(`http://ip-api.com/json/${IP}`);
     setObj(location.data);
   } catch (error) {
     console.log("Error" + error);
@@ -43,8 +43,8 @@ const Header = () => {
         <div className="flex items-center gap-[8px] md:gap-[13px] absolute top-[130px] md:static self-end 2xl:self-auto">
           <div className="text-[17px]">
             <div className="flex gap-[13px]">
-              <Clock format={"HH:mm"} ticking={true} /> <span>{obj.city}</span>{" "}
-              <span>{obj.country_name}</span>
+              <Clock format={"HH:mm"} ticking={true} /> <span>{obj?.city}</span>{" "}
+              <span>{obj?.country}</span>
             </div>
             <div className="text-[#BE9F56] text-[14px] text-end">
               <Clock format={"dddd, Do MMMM YYYY"} ticking={true} />
@@ -52,10 +52,10 @@ const Header = () => {
           </div>
           <div className="text-[40px] leading-[20px]">
             <ReactCountryFlag
-              countryCode={obj.country_code2}
+              countryCode={obj?.countryCode}
               svg
               className="emojiFlag w-[37.31px] h-[25px]"
-              title={obj.country_code2}
+              title={obj.countryCode}
             />
           </div>
         </div>
